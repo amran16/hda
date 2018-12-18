@@ -24,4 +24,25 @@ router.get('/', (req, res) => {
 
 });
 
+// DELETE requests
+router.get('apps/:id', (req, res) => { 
+    heroku
+      .request({
+        method: 'delete',
+        path: '/apps/:id',
+        headers: {
+          Foo: 'Bar'
+        },
+        parseJSON: false
+      })
+      .then(response => {
+        res.send(response);
+      })
+      .catch(e => {
+        res.status(500).send('Errro');
+        console.log(e);
+      });
+
+});
+
 module.exports = router;

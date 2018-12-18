@@ -5,8 +5,6 @@ const cookieSession = require('cookie-session');
 const mongoose = require('mongoose'); 
 const cors = require('cors');
 
-//const keys = require('./config/keys');
-
 // const Heroku = require('heroku-client'); 
 // const bodyParser = require('body-parser');
 // const passport = require('passport');
