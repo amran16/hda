@@ -1,9 +1,8 @@
 const passport = require('passport');
 const OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
-const mongoose = require('mongoose'); 
+const mongoose = require('mongoose');
 
-const Heroku = require('heroku-client'); 
-
+const Heroku = require('heroku-client');
 
 const User = mongoose.model('users');
 
@@ -32,36 +31,38 @@ passport.use(
       console.log('accessToken: ', accessToken);
       console.log('refreshToken: ', refreshToken);
       console.log('profile ', profile);
-      
-      const heroku = new Heroku({ token: accessToken});
-       
-            heroku.request({
-                method: 'GET',
-                path: '/account',
-                headers: {
-                    'Foo': 'Bar'
-                },
-                parseJSON: false
-            }).then(response => {
-            console.log(response);
-            console.log(JSON.parse(response).id)
-            }).catch(e => {
-                console.log(e);
-            });
 
-       
+      const heroku = new Heroku({ token: accessToken });
 
-        // User.findOne({ herokuId: profile.id }).then(existingUser => {
-        //     if (existingUser) {
-        //         //we have previous record with profile Id
-        //         done(null, existingUser);
-        //     } else {
-        //         new User({ herokuId: profile.id })
-        //             .save()
-        //             .then(user => done(null, user));
-        //     }
-        // });
-      
+      heroku
+        .request({
+          method: 'GET',
+          path: '/account',
+          headers: {
+            Foo: 'Bar'
+          },
+          parseJSON: false
+        })
+        .then(response => {
+          //console.log(response);
+          const parsedData = JSON.parse(response);
+          User.findOne({ herokuId: parsedData.id }).then(existingUser => {
+            if (existingUser) {
+              //we have previous record with parsedData Id
+              done(null, existingUser);
+            } else {
+              new User({
+                herokuId: parsedData.id,
+                accessToken: accessToken
+              })
+                .save()
+                .then(user => done(null, user));
+            }
+          });
+        })
+        .catch(e => {
+          console.log(e);
+        });
     }
   )
 );

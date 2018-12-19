@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  herokuId: String
+  herokuId: String,
+  accessToken: String
 });
 
 mongoose.model('users', userSchema);
