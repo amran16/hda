@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Navbar.css';
+import '../styles/navbar.css';
 
 const Navbar = props => {
   return (
@@ -11,7 +11,7 @@ const Navbar = props => {
         style={{ fontSize: '36px' }}
       />
       <nav>
-        <h4>Login With Heroku</h4>
+        <h4>Account</h4>
       </nav>
     </header>
   );

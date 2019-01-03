@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/ListItem.css';
+import '../styles/listItem.css';
 
 const ListItem = props => {
   const { file, handleDelete } = props;

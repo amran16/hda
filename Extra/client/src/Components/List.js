@@ -1,7 +1,7 @@
 import React from 'react';
 //import files from './files';
 import ListItem from './ListItem';
-import '../Styles/List.css';
+import '../styles/List.css';
 
 
 const List = (props) => {
@@ -18,7 +18,7 @@ const List = (props) => {
             <tbody>{fileList}</tbody>
          </table>
         </div>
-    )
+    );
 }
 
 export default List;

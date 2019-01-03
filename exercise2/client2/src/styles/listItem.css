@@ -1,0 +1,11 @@
+td{
+  border: 0.1px solid #808080;
+  text-align: left;
+  padding: 20px;
+  border-left: none;
+  border-right: none;
+}
+
+button{
+  background-color: rgb(43, 168, 226);
+}

@@ -1,59 +1,36 @@
 import React, { Component } from 'react';
-import '../Styles/App.css';
-import List from './List'; 
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+
+// import '../styles/App.css';
+// import List from './List';
 import Navbar from './Navbar';
 
+const Dashboard = () => <h2>Dashboard</h2>;
+const Landing = () => <h3>Landing</h3>;
+
 class App extends Component {
-	constructor(props) {
-		super();
-
-		this.state = {
-			files: [],
-			newItem: ''
-		};
-	}
-
-	componentDidMount() {
-		fetch('http://localhost:5000/apps')
-			.then(response => {
-				return response.json();
-			})
-			.then(files => {
-				this.setState({ files });
-				//console.log(JSON.stringify(files));
-			});
-	}
-
-	handleDelete = file => {
-		const copyItems = this.state.files.filter(files => {
-			return files !== file;
-		});
-		this.setState({ files: [...copyItems] });
-  };
-  
-  handleSubmit = (e) => {
-
-    e.preventDefault();
-
-    this.setState({ files: [...this.state.files, this.state.newItem],
-      newItem: ''
-     });
-    
+  componentDidMount() {
+    this.props.fetchUser();
   }
 
-	render() {
-		return <div>
-				<Navbar />
-
-				<form onSubmit={this.handleSubmit}>
-					<input type='text' name='newItem' value={this.state.newItem}   className='add' placeholder='add here' onChange={e => this.setState(
-								{ [e.target.name]: e.target.value }
-							)} />
-				</form>
-                <a href='/auth/heroku'>Sign in With Heroku</a>
-				<List files={this.state.files} handleDelete={this.handleDelete} />
-			</div>;
-	}
+  render() {
+    return (
+      <div>
+        <BrowserRouter>
+          <div>
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <Route path="/Dashboard" component={Dashboard} />
+          </div>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default connect(
+  null,
+  actions
+)(App);
