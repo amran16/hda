@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-
-// import '../styles/App.css';
-// import List from './List';
 import Navbar from './Navbar';
+import Items from './Items';
+import Landing from './Landing';
 
-const Dashboard = () => <h2>Dashboard</h2>;
-const Landing = () => <h3>Landing</h3>;
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +19,7 @@ class App extends Component {
           <div>
             <Navbar />
             <Route exact path="/" component={Landing} />
-            <Route path="/Dashboard" component={Dashboard} />
+            <Route path="/items" component={Items} />
           </div>
         </BrowserRouter>
       </div>

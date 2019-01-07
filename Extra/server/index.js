@@ -35,7 +35,7 @@ app.use(passport.session());
 
 //routes imports
 const authentication = require('./routes/authRoutes');
-const dataInfo = require('./routes/data');
+const dataInfo = require('./routes/apps');
 
 
 //express routes
