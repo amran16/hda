@@ -1,10 +1,92 @@
-.add{
+.apps{
+    text-align: center;
+    padding: 80px;
+    font-size: 15px;
+    margin-bottom: 40px;
+    background-color: rgba(245, 245, 245, 0.336);
+    background-image: -webkit-radial-gradient(0% bottom,   rgba(118, 72, 160, 0.7) 0%, rgba(118, 72, 160, 0) 60%), -webkit-radial-gradient(90% bottom,   #523f8c 0%, rgba(82, 63, 140, 0) 40%), -webkit-radial-gradient(50% top,   rgba(84, 90, 182, 0.6) 0%, rgba(84, 90, 182, 0) 75%), -webkit-radial-gradient(right top,   #794aa2 0%, rgba(121, 74, 162, 0) 57%);
+    background-image: radial-gradient(  at 0% bottom, rgba(118, 72, 160, 0.7) 0%, rgba(118, 72, 160, 0) 60%), radial-gradient(  at 90% bottom, #523f8c 0%, rgba(82, 63, 140, 0) 40%), radial-gradient(  at 50% top, rgba(84, 90, 182, 0.6) 0%, rgba(84, 90, 182, 0) 75%), radial-gradient(  at right top, #794aa2 0%, rgba(121, 74, 162, 0) 57%);
+    background-size: auto, auto, 100% 100px, 100% 100px;
+    background-repeat: no-repeat;
+}
+.myApps{
+    font-size: 25px;
+    color: white;
+}
+
+.input{
+    text-align: center;
+    padding: 30px;
+    width: 30%;
+    left: 20%;
+    border: 3px solid rgba(128, 128, 128, 0.356);
+    border-radius: 10px;
+    margin: 7rem auto;
+    display:block;
+    font-size: 15px;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.list{
+  font-weight: bold;
+  padding: 20px;
   text-align: center;
-  padding: 5px;
-  width: 35%;
-  border: 3px solid gray;
-  border-radius: 10px;
-  margin: 30px auto;
-  display:block;
-  font-size: 15px;
+  width: 200px;
+  box-sizing: border-box;
+  margin: 20px auto; /* Vertical  Horizontal */
+}
+
+div p {
+    margin: 0;
+    color: azure
+}
+
+.inputModal {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  padding: 12rem 0rem;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+}
+
+.inputForm{
+  left: 77%;
+  position: absolute;
+  margin-top: 5.7rem;
+  background-color: rgb(0, 204, 255);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.closeForm{
+  left: 66%;
+  position: absolute;
+  margin-top: 8rem;
+  background-color: rgb(0, 255, 179);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+
+@media (max-width: 60rem) {
+  .inputForm {
+    left: 80%;
+    top: 0.8em;
+  }
 }
